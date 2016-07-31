@@ -1,0 +1,147 @@
+/*
+ Firebase Authentication Working Example, JavaScript, CSS, and HTML crafted with love and lots of coffee.
+ (c) 2016, Ron Royston, MIT License
+ https://rack.pub
+*/
+html body {
+  font-family: 'Roboto', sans-serif;
+  background: #f5f5f5;
+}
+
+label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #616161;
+  font-size: 1.2em;
+}
+
+.drawer-separator {
+  height: 1px;
+  background-color: #dcdcdc;
+  margin: 8px 0;
+}
+
+.social-icon {
+  position: absolute;
+  height: 36px;
+  left: 1px;
+  opacity: .3;
+}
+
+.oauth-login-button {
+  width: 148px;
+  margin: 12px;
+}
+
+.license {
+  font-size: .6em;
+}
+.opacity4 {
+  opacity: .4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.oin {
+  color: #424242;
+  font-size: .8em;
+  vertical-align: 15%;
+}
+
+.align-text-left{
+  text-align:left;
+}
+.mdl-card {
+  width: 512px;
+}
+
+.mdl-card__menu {
+  color: #fff;
+}
+
+.mdl-layout__drawer-button {
+  color: #757575 !important;
+}
+
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  color: white;
+}
+
+.mdl-layout__content {
+  flex: 1 0 auto;
+}
+
+.mdl-card__actions {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.mdl-card__actions > .mdl-button--icon {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../images/seaside.jpg') center / cover;
+}
+
+.login-card > .mdl-card__title {
+  background: url('../images/sun.png') center / cover;
+}
+
+#private-card > .mdl-card__title {
+  background: url('../images/top.jpg') center / cover;
+}
+
+#public-card > .mdl-card__title {
+  background: url('../images/mountains.png') center / cover;
+}
+
+#help-card > .mdl-card__title {
+  background: url('../images/bridge.jpg') center / cover;
+}
+
+#action-handler > .mdl-card__title {
+  background: url('../images/lines.png') center / cover;
+}
+
+#account-menu-button {
+  text-transform: capitalize;
+  display:none;
+}
+
+#sign-in-button {
+  display:none;
+}
+
+#chip:hover {
+  cursor: pointer;
+}
+
+#login-card {
+  display: none;
+}
+#register-card {
+  display: none;
+}
+#notice-card {
+  display: none;
+}
+#logout-card {
+  display: none;
+}
+#secure-card {
+  display: none;
+}
+#pwd-users-only-div{
+  display:none;
+}
+#verify-password-div{
+  display:none;
+}

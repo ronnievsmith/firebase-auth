@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset=utf-8 />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile viewing enhancement -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- Description should be roughly 155 characters, no double quotes, use keywords -->
+    <meta name="description" content="Firebase v3 Auth Full Functionality Example Code" />
+    <!-- Format as Primary Keyword - Secondary Keyword | Brand Name, keep under 55 characters -->
+    <title>Firebase v3 Auth Sandbox</title>
+    <!-- Minimize the number of CSS files for performance -->
+    <link rel="shortcut icon" href="favicon.png">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100,300,700italic,500,500italic,400italic,300italic,100italic|Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-amber.min.css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+      </script>
+      <noscript>
+      <strong>Warning !</strong>
+      Because your browser does not support HTML5, some elements are created using JavaScript.
+      Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
+      </noscript>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="chip" data-toggle="tooltip" title="Logout" data-placement="bottom"></div>
+    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-layout__header--transparent ">
+        <div class="mdl-layout__header-row mdl-color-text--grey-700">
+          
+          <span class="mdl-layout-title">
+            <a href="/"><img src="../images/firebase-logo.png" alt="logo" height="48"></a>
+          </span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation -->
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="javascript:void(0)" id="sign-in-button">
+              <i class="material-icons">account_circle</i> <span id="account">Sign In</span>
+            </a>
+            <a class="mdl-navigation__link" href="javascript:void(0)" id="account-menu-button">
+            </a>
+            <a class="mdl-navigation__link" href="javascript:void(0)" id="help-button">
+              <i class="material-icons">help</i> <span id="help">Help</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+      <!-- Side Drawer -->
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title"><img src="../images/firebase-logo.png" alt="logo" height="48"></span>
+        <div class="drawer-separator"></div>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="/public"><i class="material-icons">lock_open</i> Public</a>
+          <a class="mdl-navigation__link" href="/help"><i class="material-icons">help_outline</i> Help</a>
+        </nav>
+      </div>
+        
+      <!--Main Page -->
+      <main class="mdl-layout__content page-content">
+        <!--Main Page Content Section -->
+        <section class="mdl-grid">
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-card mdl-shadow--2dp mdl-cell"  id="welcome-card">
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text mdl-color-text--white">Welcome</h1>
+            </div>
+            <div class="mdl-card__supporting-text mdl-typography--headline">
+              <ul class="demo-list-three mdl-list">
+                <li class="mdl-list__item mdl-list__item--three-line">
+                  <span class="mdl-list__item-primary-content">
+                    <i class="material-icons mdl-list__item-avatar">public</i>
+                    <span>Create Firebase Web Project</span>
+                    <span class="mdl-list__item-text-body">
+                      Setup a Firebase project.  Make note of your configuration parameters.
+                    </span>
+                  </span>
+                  <span class="mdl-list__item-secondary-content">
+                    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">looks_one</i></a>
+                  </span>
+                </li>
+                <li class="mdl-list__item mdl-list__item--three-line">
+                  <span class="mdl-list__item-primary-content">
+                    <i class="material-icons  mdl-list__item-avatar">fingerprint</i>
+                    <span>Enable Authentication</span>
+                    <span class="mdl-list__item-text-body">
+                      Enable all 6 Methods of Authentication.  Follow the Firebase instructions.
+                    </span>
+                  </span>
+                  <span class="mdl-list__item-secondary-content">
+                    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">looks_two</i></a>
+                  </span>
+                </li>
+                <li class="mdl-list__item mdl-list__item--three-line">
+                  <span class="mdl-list__item-primary-content">
+                    <i class="material-icons  mdl-list__item-avatar">http</i>
+                    <span>Serve Website</span>
+                    <span class="mdl-list__item-text-body">
+                      Firebase hosting is free for testing.  I recommend Cloud9 IDE as your workspace.  It's also free.
+                    </span>
+                  </span>
+                  <span class="mdl-list__item-secondary-content">
+                    <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">looks_3</i></a>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="mdl-card__actions mdl-card--border intro-card-actions">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="https://firebase.google.com/docs/auth/">
+                Firebase Docs
+              </a>
+              <div class="mdl-layout-spacer"></div>
+              <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/public">
+                Public Page
+              </a>
+            </div>
+          </div>
+          <div class="mdl-layout-spacer"></div>
+        </section>
+        <p class="text-center license">Copyright &#169; 2016 Ron Royston, MIT License</p>
+      </main>
+      <!--Main Page Footer Section -->
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">
+            More Information
+          </div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="https://firebase.google.com/docs/web/setup">Add Firebase to your Web Project</a></li>
+            <li><a href="https://firebase.google.com/docs/auth/">Firebase Authentication</a></li>
+            <li><a href="https://firebase.google.com/docs/reference/js/index-all">Firebase Reference Index</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <div id="toast" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

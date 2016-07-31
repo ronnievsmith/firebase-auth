@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=utf-8 />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Mobile viewing enhancement -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <!-- Description should be roughly 155 characters, no double quotes, use keywords -->
+        <meta name="description" content="Firebase v3 Auth Full Functionality Example Code" />
+        <!-- Format as Primary Keyword - Secondary Keyword | Brand Name, keep under 55 characters -->
+        <title>Firebase v3 Auth Sandbox</title>
+        <!-- Minimize the number of CSS files for performance -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100,300,700italic,500,500italic,400italic,300italic,100italic|Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-amber.min.css" />
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+            </script>
+            <noscript>
+                <strong>Warning !</strong>
+                Because your browser does not support HTML5, some elements are created using JavaScript.
+                Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
+            </noscript>
+        <![endif]-->
+    </head>
+        
+    <body>
+        <div id="chip" data-toggle="tooltip" title="Logout" data-placement="bottom"></div>
+        <div class="demo-layout-transparent mdl-layout mdl-js-layout">
+            
+            <header class="mdl-layout__header mdl-layout__header--transparent ">
+                <div class="mdl-layout__header-row mdl-color-text--grey-700">
+                    <!-- Title Displays just right of menu icon - none for now-->
+                    <span class="mdl-layout-title">
+                        <a href="/"><img src="../images/firebase-logo.png" alt="logo" height="48"></a>
+                    </span>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+                    <!-- Navigation -->
+                    <nav class="mdl-navigation">
+                        <a class="mdl-navigation__link" href="javascript:void(0)" id="sign-in-button">
+                            <i class="material-icons">account_circle</i> <span id="account">Sign In</span>
+                        </a>
+                        <a class="mdl-navigation__link" href="javascript:void(0)" id="account-menu-button">
+                        </a>
+                        <a class="mdl-navigation__link" href="javascript:void(0)" id="help-button">
+                            <i class="material-icons">help</i> <span id="help">Help</span>
+                        </a>
+                    </nav>
+                </div>
+            </header>
+            
+            <!-- Side Drawer -->
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title"><img src="../images/firebase-logo.png" alt="logo" height="24"></span>
+                <div class="drawer-separator"></div>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="/public"><i class="material-icons">lock_open</i> Public</a>
+                    <a class="mdl-navigation__link" href="/help"><i class="material-icons">help_outline</i> Help</a>
+                </nav>
+            </div>
+            
+            <!--Main Page -->
+            <main class="mdl-layout__content page-content">
+                <!--Main Page Content Section -->
+                <section class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        
+                        <div class="mdl-cell">
+                            <h1 class="text-center">Ack!</h1>
+                        </div>
+                        
+                        <div class="mdl-layout-spacer"></div>
+                </section>
+                <p class="text-center license">Copyright &#169; 2016 Ron Royston, MIT License</p>
+            </main>
+            <!--Main Page Footer Section -->
+            <footer class="mdl-mini-footer">
+                <div class="mdl-mini-footer__left-section">
+                    <div class="mdl-logo">
+                        More Information
+                    </div>
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="/help">Help</a></li>
+                        <li><a href="/help">Privacy and Terms</a></li>
+                        <li><a href="/help">User Agreement</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </div>
+        <div id="toast" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+        <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+        <script src="script.js"></script>
+        <script>
+            var demoAck = (function() {
+                var pub = {};
+                var doc = document;
+                /*
+                Handle password reset requests by first verifying the action code with verifyPasswordResetCode
+                then get a new password from the user and pass it to confirmPasswordReset
+                */
+                var getArg = getArg();
+                var mode = getArg['mode'];
+                var oobCode = getArg['oobCode'];
+                var apiKey = getArg['apiKey'];
+                
+                // This is the minimum configuration required for the API to be used.
+                var config = {
+                    'apiKey': apiKey  // This key could also be copied from the web
+                    // initialization snippet found in the Firebase console.
+                };
+                
+                var auth = firebase.auth();
+                
+                switch(mode) {
+                    case 'resetPassword':
+                        console.log('Password Request Fired');
+                        break;
+                    case 'recoverEmail':
+                        console.log('Recover Email Fired');
+                        break;
+                    case 'verifyEmail':
+                        console.log('Verify Email Fired');
+                        handleVerifyEmail(auth, oobCode);
+                        break;
+                }                
+                
+                function handleResetPassword(auth, oobCode) {
+                    var accountEmail;
+                    // Verify the password reset code is valid.
+                    auth.verifyPasswordResetCode(oobCode).then(function(email) {
+                        var accountEmail = email;
+
+                        // TODO: Show the reset screen with the user's email and ask the user for
+                        // the new password.
+                        // Save the new password.
+                        auth.confirmPasswordReset(oobCode, newPassword).then(function(resp) {
+                            // Password reset has been confirmed and new password updated.
+                            // TODO: Display a link back to the app, or sign-in the user directly
+                            // if the page belongs to the same domain as the app:
+                            // auth.signInWithEmailAndPassword(accountEmail, newPassword);
+                        }).catch(function(error) {
+                            // Error occurred during confirmation. The code might have expired or the
+                            // password is too weak.
+                        });
+                    }).catch(function(error) {
+                        // Invalid or expired action code. Ask user to try to reset the password
+                        // again.
+                    });
+                }
+                /*
+                Handle email address change revocations by first verifying the action code with checkActionCode
+                then restore the user's email address with applyActionCode.
+                */
+                function handleRecoverEmail(auth, oobCode) {
+                    var restoredEmail = null;
+                    // Confirm the action code is valid.
+                    auth.checkActionCode(oobCode).then(function(info) {
+                        // Get the restored email address.
+                        restoredEmail = info['data']['email'];
+                        // Revert to the old email.
+                        return auth.applyActionCode(oobCode);
+                    }).then(function() {
+                        // Account email reverted to restoredEmail
+                        // TODO: Display a confirmation message to the user.
+                        // You might also want to give the user the option to reset their password
+                        // in case the account was compromised:
+                        auth.sendPasswordResetEmail(restoredEmail).then(function() {
+                            // Password reset confirmation sent. Ask user to check their email.
+                        }).catch(function(error) {
+                            // Error encountered while sending password reset code.
+                        });
+                    }).catch(function(error) {
+                        // Invalid code.
+                    });
+                }
+                
+                //Handle email address verification by calling applyActionCode.
+                
+                function handleVerifyEmail(auth, oobCode) {
+                    // Try to apply the email verification code.
+                    auth.applyActionCode(oobCode).then(function(resp) {
+                        // Email address has been verified.
+                        toast('Email address has been verified',9000);
+                        // TODO: Display a confirmation message to the user.
+                        // You could also provide the user with a link back to the app.
+                    }).catch(function(error) {
+                        // Code is invalid or expired. Ask the user to verify their email address again.
+                    });
+                }
+                
+                function getArg(param) {
+                	var vars = {};
+                	window.location.href.replace( location.hash, '' ).replace( 
+                		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
+                		function( m, key, value ) { // callback
+                			vars[key] = value !== undefined ? value : '';
+                		}
+                	);
+                
+                	if ( param ) {
+                		return vars[param] ? vars[param] : null;	
+                	}
+                	return vars;
+                }
+
+  function toast (msg,timeout){
+    if(!timeout){timeout = 2750}
+    var data = {
+      message: msg,
+      timeout: timeout
+    };
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  };
+  
+                //API
+                return pub;
+            }());     
+        </script>
+    </body>
+</html>
+
+
