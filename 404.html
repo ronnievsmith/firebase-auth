@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset=utf-8 />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile viewing enhancement -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <!-- Description should be roughly 155 characters, no double quotes, use keywords -->
-    <meta name="description" content="Firebase v3 Auth Full Functionality Example Code" />
+    <meta name="description" content="Firebase v3 Web Auth Full Functionality Example Code" />
     <!-- Format as Primary Keyword - Secondary Keyword | Brand Name, keep under 55 characters -->
-    <title>Firebase v3 Auth Sandbox</title>
+    <title>Firebase v3 Web Auth Sandbox</title>
     <!-- Minimize the number of CSS files for performance -->
     <link rel="shortcut icon" href="favicon.png">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100,300,700italic,500,500italic,400italic,300italic,100italic|Roboto+Condensed:300' rel='stylesheet' type='text/css'>
@@ -27,49 +27,49 @@
         </noscript>
     <![endif]-->
     <style>
-        html, body {
-          height: 100%;
-          min-height: 100%;
-          margin: 0;
-          padding: 0;
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
         }
         
         #box {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height:100%;
-          width:100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
         }
         
         #error-message {
-          max-width: 50%;
+            max-width: 50%;
         }
-        #marqee{
-          font-family: 'Roboto', sans-serif;
-          font-weight: 700;
-          font-size: 6em;
-          opacity:.72;
-          margin:48px;
+        
+        #marqee {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 6em;
+            opacity: .72;
+            margin: 48px;
         }
     </style>
-  </head>
+</head>
 
-  <body style="background:url('../images/google.jpg') center / cover">
+<body style="background:url('../images/google.jpg') center / cover">
     <div id="box">
-      <div class="text-center" id="error-message">
-        <div id="marqee" class="mdl-color-text--grey-800">404</div>
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/">
-          <i class="material-icons align">chevron_left</i> Back to auth working example
-        </a>            
+        <div class="text-center" id="error-message">
+            <div id="marqee" class="mdl-color-text--grey-800">404</div>
+            <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="/">
+                <i class="material-icons align">chevron_left</i> Back to auth working example
+            </a>
 
-      </div>
+        </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
 
 </html>
-
-

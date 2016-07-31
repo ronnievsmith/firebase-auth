@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var passwordInputMdlTextfield = doc.getElementById('password-input-mdl-textfield');
   var registrationInputPassword2MdlTextfield = doc.getElementById('registration-input-password2-mdl-textfield');
   var backButton = doc.getElementById('back-button');
-  var providers = doc.getElementsByClassName('login-button');
+  var providers = doc.getElementsByClassName('oauth-login-button');
   var registrationInputPassword = doc.getElementById('registration-input-password');
   var registrationInputPassword2 = doc.getElementById('registration-input-password2');
   var emailInput = doc.getElementById('email');

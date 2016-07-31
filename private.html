@@ -1,124 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset=utf-8 />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile viewing enhancement -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <!-- Description should be roughly 155 characters, no double quotes, use keywords -->
-    <meta name="description" content="Firebase v3 Auth Full Functionality Example Code" />
+    <meta name="description" content="Firebase v3 Web Auth Full Functionality Example Code" />
     <!-- Format as Primary Keyword - Secondary Keyword | Brand Name, keep under 55 characters -->
-    <title>Firebase v3 Auth Sandbox</title>
+    <title>Firebase v3 Web Auth Sandbox</title>
     <!-- Minimize the number of CSS files for performance -->
     <link rel="shortcut icon" href="favicon.png">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100,300,700italic,500,500italic,400italic,300italic,100italic|Roboto+Condensed:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-amber.min.css" />
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
-        </script>
-        <noscript>
-        <strong>Warning !</strong>
-        Because your browser does not support HTML5, some elements are created using JavaScript.
-        Unfortunately your browser has disabled scripting. Please enable it in order to display this page.
-        </noscript>
-    <![endif]-->
-  </head>
-  <body>
-    <div id="chip" data-toggle="tooltip" title="Logout" data-placement="bottom"></div>
+</head>
+
+<body>
     <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent ">
-        <div class="mdl-layout__header-row mdl-color-text--grey-700">
-          <span class="mdl-layout-title">
-            <a href="/"><img src="../images/firebase-logo.png" alt="logo" height="48"></a>
-          </span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="javascript:void(0)" id="sign-in-button">
-              <i class="material-icons">account_circle</i> <span id="account">Sign In</span>
-            </a>
-            <a class="mdl-navigation__link" href="javascript:void(0)" id="account-menu-button">
-            </a>
-            <a class="mdl-navigation__link" href="javascript:void(0)" id="help-button">
-              <i class="material-icons">help</i> <span id="help">Help</span>
-            </a>
-          </nav>
-        </div>
-      </header>
-      <!-- Side Drawer -->
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><img src="../images/firebase-logo.png" alt="logo" height="48"></span>
-        <div class="drawer-separator"></div>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="/public"><i class="material-icons">lock_open</i> Public</a>
-          <a class="mdl-navigation__link" href="/help"><i class="material-icons">help_outline</i> Help</a>
-        </nav>
-      </div>
-      <!--Main Page -->
-      <main class="mdl-layout__content page-content">
-        <!--Main Page Content Section -->
-        <section class="mdl-grid">
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-card mdl-shadow--2dp mdl-cell" id="private-card">
-            <div class="mdl-card__title">
-              <h1 class="mdl-card__title-text mdl-color-text--white">Members Only</h1>
+        
+        <!-- Header -->
+        <header class="mdl-layout__header mdl-layout__header--transparent ">
+            <div class="mdl-layout__header-row mdl-color-text--grey-700">
+                <span class="mdl-layout-title">
+                    <a href="/"><img src="../images/firebase-logo.png" alt="logo" height="48"></a>
+                </span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation -->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="javascript:void(0)" id="sign-in-button">
+                        <i class="material-icons">account_circle</i> <span id="account">Sign In</span>
+                    </a>
+                    <a class="mdl-navigation__link" href="javascript:void(0)" id="account-menu-button">
+                    </a>
+                    <a class="mdl-navigation__link" href="javascript:void(0)" id="help-button">
+                        <i class="material-icons">help</i> <span id="help">Help</span>
+                    </a>
+                </nav>
             </div>
-            <div class="mdl-card__supporting-text mdl-typography--headline">
-              <p>This page is titled Members Only and even has the word private in the web address however the security mechanism here is quite weak.  
-                JavaScript code in your browser disabled the links to this page for unauthenticated users however anyone can plug this web address into their browser and this page will render.  Try it.</p>
-              <p>Client side JavaScript could be used to prohibit rendering of this page to members only but this type of security mechanism could easily be tampered with and undone.</p>
-              <p>Authorization provided server side by 
-                <a class="mdl-color-text--grey-500" href="#" onclick="window.open('https://firebase.google.com/docs/database/security/', 'newwindow', 'width=800, height=400'); return false;">
+        </header>
+        
+        <!-- Side Drawer -->
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title"><img src="../images/firebase-logo.png" alt="logo" height="48"></span>
+            <div class="drawer-separator"></div>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="/public"><i class="material-icons">lock_open</i> Public</a>
+                <a class="mdl-navigation__link" href="/help"><i class="material-icons">help_outline</i> Help</a>
+            </nav>
+        </div>
+        
+        <!--Main Page -->
+        <main class="mdl-layout__content page-content">
+            
+            <!--Card Section -->
+            <section class="mdl-grid">
+                
+                <!-- Center Card -->
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-card mdl-shadow--2dp mdl-cell" id="private-card">
+                    <div class="mdl-card__title">
+                        <h1 class="mdl-card__title-text mdl-color-text--white">Members Only</h1>
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-typography--headline">
+                        <p>This page is titled Members Only and even has the word private in the web address however the security mechanism here is quite weak. JavaScript code in your browser disabled the links to this page for unauthenticated users however
+                            anyone can plug this web address into their browser and this page will render. Try it.</p>
+                        <p>Client side JavaScript could be used to prohibit rendering of this page to members only but this type of security mechanism could easily be tampered with and undone.</p>
+                        <p>Authorization provided server side by
+                            <a class="mdl-color-text--grey-500" href="#" onclick="window.open('https://firebase.google.com/docs/database/security/', 'newwindow', 'width=800, height=400'); return false;">
                   Firebase Realtime Database Security Rules<i class="material-icons oin">open_in_new</i></a> secures the data on the next card.</p>
-            </div>
-            <div class="mdl-card__actions mdl-card--border intro-card-actions">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/">
-                Home
-              </a>
-              <div class="mdl-layout-spacer"></div>
-              <button class="mdl-button mdl-button--colored" id="next-button">Next</button>
-            </div>
-          </div>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border intro-card-actions">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/">
+                            Home
+                        </a>
+                        <div class="mdl-layout-spacer"></div>
+                        <button class="mdl-button mdl-button--colored" id="next-button">Next</button>
+                    </div>
+                </div>
                 
-          <div class="mdl-card mdl-shadow--2dp mdl-cell" id="secure-card">
-            <div class="text-center">
-              <br>
-              <br>
-              <br>
-              <!-- MDL Spinner Component -->
-              <div class="mdl-spinner mdl-js-spinner is-active"></div>
-              <p>Are you sure that your markup node is present in your Realtime Database?  The secureData child key with markup value should be there too.</p>
-              <p>Also, are you signed in?</p>
-            </div>
-          </div>
+                <div class="mdl-card mdl-shadow--2dp mdl-cell" id="secure-card">
+                    <div class="text-center">
+                        <br>
+                        <br>
+                        <br>
+                        <!-- MDL Spinner Component -->
+                        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+                        <p>Are you sure that your markup node is present in your Realtime Database? The secureData child key with markup value should be there too.</p>
+                        <p>Also, are you signed in?</p>
+                    </div>
+                </div>
                 
-          <div class="mdl-layout-spacer"></div>
-        </section>
-        <p class="text-center license">Copyright &#169; 2016 Ron Royston, MIT License</p>
-      </main>
-      <!--Main Page Footer Section -->
-      <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">
-            More Information
-          </div>
-          <ul class="mdl-mini-footer__link-list">
-            <li><a href="https://firebase.google.com/docs/web/setup">Add Firebase to your Web Project</a></li>
-            <li><a href="https://firebase.google.com/docs/auth/">Firebase Authentication</a></li>
-            <li><a href="https://firebase.google.com/docs/reference/js/index-all">Firebase Reference Index</a></li>
-          </ul>
-        </div>
-      </footer>
+                <!-- Center Card -->
+                <div class="mdl-layout-spacer"></div>
+                
+            <!--/Card Section -->
+            </section>
+            
+            <p class="text-center license">Copyright &#169; 2016 <a class="mdl-color-text--grey-600" href="javascript:void(0)" onclick="window.open('https://rack.pub', 'newwindow', 'width=800, height=400'); return false;">Ron Royston</a>, MIT License</p>
+            
+        </main>
+            
+        <!--Main Page Footer Section -->
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">
+                    More Information
+                </div>
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="https://firebase.google.com/docs/auth/">Firebase Authentication</a></li>
+                    <li><a href="https://firebase.google.com/docs/reference/js/index-all">Firebase Web Reference Index</a></li>
+                </ul>
+            </div>
+        </footer>
+        
     </div>
+        
+    <!--Toast Messages Markup -->
     <div id="toast" class="mdl-js-snackbar mdl-snackbar">
-      <div class="mdl-snackbar__text"></div>
-      <button class="mdl-snackbar__action" type="button"></button>
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
     </div>
+        
+    <!-- IE Compatibility shims -->
+      <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js""></script>
+      <![endif]-->
+        
+      <!--[if IE]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.7/es5-shim.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/flexie/1.0.3/flexie.min.js"></script>
+        <link href="../assets/ie.css" rel="stylesheet">
+      <![endif]-->
+    <!-- end shims -->
+        
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
