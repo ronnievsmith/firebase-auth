@@ -1,14 +1,14 @@
-# Firebase v3 Web Authentication 
-# Complete Working Example
+# Firebase v3 Web Auth Complete Working Example
 ### Synopsis
 
 A fully functional example of Firebase v3 Web authentication.  Sign in with Facebook, Github, Google, Twitter; password based and anonymous accounts.
 Password based users have their email address validated with an email containing a validation link; they can change their email address and password - both events send emails as an additional security measure.
 Users of any sign in type can delete their account.  Lastly, the difference between authentication, client side authorization, and server side authorization secured via Firebase Realtime Database Security Rules is demonstrated.
 The code is easy to read and follow and is well documented.  The focus is on the fully functional authentication system.
-### Code Example
 
-### [LIVE DEMO](http://rack.pub/firebase-auth)
+### Live Fully Functional Demo
+
+:point_right: [CLICK FOR LIVE DEMO](http://rack.pub/firebase-auth) :point_left:
 
 <img src="https://github.com/rhroyston/rhroyston.github.io/blob/master/firebase-auth.jpg" alt="screenshot">
 
