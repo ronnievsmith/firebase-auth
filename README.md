@@ -37,7 +37,7 @@ The easiest way to install this code is to clone or download it.  The following 
     4. Using Firebase Tools command line, login to your Firebase project.  `firebase login --no-localhost `
     5. Using Firebase Tools command line, setup a Firebase project in the current directory. `firebase init`
     6. Clone this set of files and folders to your IDE. `git clone https://github.com/rhroyston/firebase-auth.git`
-    7. You may need to update `href` and `src` as necessary to work with your Web hosting folder structure in all JS, CSS, and all HTML files.
+    7. You may need to update `href`, `src`, and `background: url` in all JS, CSS, and all HTML files depending on your Web hosting folder structure .
         1. Use Find feature to search for both `href` and `src` and update as necessary.
         2. Browser Console will display any remaining incorrect paths errors. 
         3. Note script.js line 781 `privateLink.href = "../firebase-auth/private"` the `..` seems to be required.
