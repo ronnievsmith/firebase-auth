@@ -37,12 +37,13 @@ The easiest way to install this code is to clone or download it.  The following 
     4. Using Firebase Tools command line, login to your Firebase project.  `firebase login --no-localhost `
     5. Using Firebase Tools command line, setup a Firebase project in the current directory. `firebase init`
     6. Clone this set of files and folders to your IDE. `git clone https://github.com/rhroyston/firebase-auth.git`
-    7. You may need to update `href`, `src`, and `background: url` in all JS, CSS, and all HTML files depending on your Web hosting folder structure .
+    7. Using Firebase Tools command line, push your IDE project to your Firebase project. `firebase deploy`
+    8. View Firebase project in your browser.  Any broken images or errors?  Easy fix below.
+    8. You may need to update `href`, `src`, and `background: url` in all JS, CSS, and all HTML files depending on your Web hosting folder structure .
         1. Use Find feature to search for both `href` and `src` and update as necessary.
         2. Browser Console will display any remaining incorrect paths errors. 
         3. Note script.js line 781 `privateLink.href = "../firebase-auth/private"` the `..` seems to be required.
-        4. Once all pages render properly (no broken images or console errors), continue.
-    8. Using Firebase Tools command line, push your IDE project to your Firebase project. `firebase deploy`
+        4. Once all pages render properly from Firebase Hosting (no broken images or console errors), continue.
     
 3. **Configure Firebase**
     1. Enable all 6 forms of authentication.  Follow the instructions on configuring social media site settings.
