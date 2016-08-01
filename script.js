@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // FIREBASE CONFIG
   var config = {
-    apiKey: "AIzaSyDdTqbsAZje0qslUEsCNVF3de7pXMVevQk",
-    authDomain: "auth-34454.firebaseapp.com",
-    databaseURL: "https://auth-34454.firebaseio.com",
-    storageBucket: "auth-34454.appspot.com",
+    apiKey: "your api key goes here",
+    authDomain: "your auth domain",
+    databaseURL: "your db url",
+    storageBucket: "your bucket",
   };
   
   //INITIALIZE FIREBASE WEB APP
