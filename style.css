@@ -50,11 +50,15 @@ label {
   vertical-align: 15%;
 }
 
-.align-text-left{
+.text-left{
   text-align:left;
 }
 .mdl-card {
   width: 512px;
+}
+
+.mdl-card__supporting-text{
+  color:#757575;
 }
 
 .mdl-card__menu {
@@ -104,7 +108,7 @@ label {
 }
 
 #help-card > .mdl-card__title {
-  background: url('../images/bridge.jpg') center / cover;
+  background: url('../images/help.jpg') center / cover;
 }
 
 #action-handler > .mdl-card__title {
