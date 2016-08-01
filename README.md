@@ -40,13 +40,11 @@ The easiest way to install this code is to clone or download it.  The following 
 4. Login to Web app
     1. Once pages render ok login using an oAuth provider
     2. From the browser command line, use the exposed `demo.update('mynode','myKey','myValue')` method exactly as follows:
-    ```
+    ```javascript
     demo.update("markup","secureData","<div class=\"mdl-card__title\"> <h1 class=\"mdl-card__title-text mdl-color-text--white\">Secured Data</h1> </div><div class=\"mdl-card__supporting-text mdl-typography--headline\"> <p>This is a secure card. The HTML markup that renders this card is secured in the Realtime Database.  Access is determined server side so no matter what you do with JavaScript on your browser you will not be able to view this card unless you are authorized to.</p><p>Secured data can be markup, JSON, strings, numbers, etc. Your imagination is the limit!</p></div><div class=\"mdl-card__actions mdl-card--border intro-card-actions\"> <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\" href=\"../firebase-auth/\">Home</a></div>");
     ```
 
-### Test Plan
-
-->:mortar_board: Firebase v3 Authentication and Authorization Walkthrough<-
+### Firebase v3 Authentication and Authorization Demo Walkthrough
 
 1. Login using each oAuth provider
     1. Notice that updating email address or password options are not present in your Account page.
