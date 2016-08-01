@@ -8,7 +8,7 @@ The code is easy to read and follow and is well documented.  The focus is on the
 
 ### Live Fully Functional Demo
 
-->:point_right:  [CLICK FOR LIVE DEMO](http://rack.pub/firebase-auth)  :point_left:<-
+:point_right:  [CLICK FOR LIVE DEMO](http://rack.pub/firebase-auth)  :point_left:
 
 <img src="https://github.com/rhroyston/rhroyston.github.io/blob/master/firebase-auth.jpg" alt="screenshot">
 
