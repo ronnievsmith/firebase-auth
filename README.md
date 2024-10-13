@@ -19,7 +19,7 @@ Lastly, the difference between authentication, client side authorization, and se
 
 ### Motivation
 
-Setting up all 6 types of authentication took me quite a while so I decided to create a template that I could use as a starting point for my Firebase v3 Web applications.  It occurred to me that I could share this with other developers.
+Setting up all 6 types of authentication took me quite a while so I decided to create a template to use as a starting point for my Firebase v3 Web applications.  It occurred to me that I could share this with other developers.
 
 ### Installation
 
