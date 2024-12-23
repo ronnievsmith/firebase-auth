@@ -15,7 +15,7 @@ Lastly, the difference between authentication, client side authorization, and se
 
 :point_right:  [CLICK FOR LIVE DEMO](http://rack.pub/firebase-auth)  :point_left:
 
-<img src="https://github.com/rhroyston/rhroyston.github.io/blob/master/firebase-auth.jpg" alt="screenshot">
+<img src="https://ronnievsmith.com/media/firebase-auth.jpg" alt="screenshot">
 
 ### Motivation
 
